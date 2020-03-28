@@ -53,10 +53,20 @@
             color:darkslategrey;
             font-size: 4.5rem;
             transition: transform 0.2s ease-out;
+            animation-fill-mode: forwards;
             @media(max-width:375px){
                 font-size: 4rem;
             }
         }
+        .up{
+            animation:flyUpaxis 0.2s ease-out;
+            animation-fill-mode: forwards;
+        }
+        .down{
+            animation: flyDownAxis 0.2s ease-out;
+            animation-fill-mode: forwards;
+        }
+       
         .correct{
             color:#76ff03;
         }
@@ -73,6 +83,24 @@
                 font-size: 2rem;
                 color:darkgoldenrod;
             }
+        }
+    }
+    @keyframes flySideAxis {
+            100%{
+                animation-timing-function: ease-in;
+                transform: translateX(50px);
+            }
+    }
+    @keyframes flyUpaxis {
+        100%{
+            animation-timing-function: ease-out;
+            transform: translate(0px,-200px);
+        }
+    }
+    @keyframes flyDownAxis {
+        100%{
+            animation-timing-function: ease-out;
+            transform: translate(0px,200px);
         }
     }
 }

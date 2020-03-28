@@ -9,39 +9,39 @@ export class GamePageComponent implements OnInit {
   gameOver: boolean = false;
 
   constructor() { }
-  animals: any[] = [{ name: 'maina', flight: true },
-  { name: 'ghoda', flight: false },
-  { name: 'hathi', flight: false },
-  { name: 'ostrich', flight: false },
-  { name: 'penguin', flight: false },
-  { name: 'billi', flight: false },
-  { name: 'tota', flight: true },
-  { name: 'baaz', flight: true },
-  { name: 'chaalbaaz', flight: false },
-  { name: 'dagabaaz', flight: false },
-  { name: 'girrafe', flight: false },
-  { name: 'qunami', flight: true },
-  { name: 'plane', flight: false },
-  { name: 'aeroplane', flight: true },
-  { name: 'Helipad', flight: false },
-  { name: 'Hanuman', flight: true },
-  { name: 'spiderman', flight: false },
-  { name: 'kauwa', flight: true },
-  { name: 'ladki', flight: true },
-  { name: 'Thaili', flight: true },
-  { name: 'Thali', flight: false },
-  { name: 'Afwah', flight: true },
-  { name: 'Modiji', flight: true },
-  { name: 'Murgi', flight: false },
-  { name: 'scooter', flight: false },
-  { name: 'Titar', flight: true },
-  { name: 'Chamgadad', flight: true },
-  { name: 'Cheel', flight: true },
-  { name: 'Data', flight: true },
-  { name: 'Data', flight: true },
-  { name: 'Hero', flight: true },
-  { name: 'A380', flight: true },
-  { name: 'Jahaz', flight: true },
+  animals: any[] = [{ name: 'maina', flight: 'up' },
+  { name: 'ghoda', flight: 'down' },
+  { name: 'hathi', flight: 'down' },
+  { name: 'ostrich', flight: 'down' },
+  { name: 'penguin', flight: 'down' },
+  { name: 'billi', flight: 'down' },
+  { name: 'tota', flight: 'up' },
+  { name: 'baaz', flight: 'up' },
+  { name: 'chaalbaaz', flight: 'down' },
+  { name: 'dagabaaz', flight: 'down' },
+  { name: 'girrafe', flight: 'down' },
+  { name: 'qunami', flight: 'up' },
+  { name: 'plane', flight: 'down' },
+  { name: 'aeroplane', flight: 'up' },
+  { name: 'Helipad', flight: 'down' },
+  { name: 'Hanuman', flight: 'up' },
+  { name: 'spiderman', flight: 'down' },
+  { name: 'kauwa', flight: 'up' },
+  { name: 'ladki', flight: 'up' },
+  { name: 'Thaili', flight: 'up' },
+  { name: 'Thali', flight: 'down' },
+  { name: 'Afwah', flight: 'up' },
+  { name: 'Modiji', flight: 'up' },
+  { name: 'Murgi', flight: 'down' },
+  { name: 'scooter', flight: 'down' },
+  { name: 'Titar', flight: 'up' },
+  { name: 'Chamgadad', flight: 'up' },
+  { name: 'Cheel', flight: 'up' },
+  { name: 'Data', flight: 'up' },
+  { name: 'Data', flight: 'up' },
+  { name: 'Hero', flight: 'up' },
+  { name: 'A380', flight: 'up' },
+  { name: 'Jahaz', flight: 'up' },
   ]
   lives = [{ used: false }, { used: false }, { used: false },]
   points = 0
@@ -83,58 +83,91 @@ export class GamePageComponent implements OnInit {
         console.log(direction)
        
         if (direction === 16) {//down
-  
-         e.target.style.transform = 'translate(0px, 200px)';
-         setTimeout(() => {
-           if(this.currentAnimal.flight == false){
-             e.target.classList.add('correct');
-             this.points = this.points + 10
-           }
-           else{
-             e.target.classList.add('wrong');
-             this.lives[this.livesLeft-1].used = true;
-            this.livesLeft -= 1;
+        this.animateSwipe('down');
+        //  e.target.style.transform = 'translate(0px, 200px)';
+        //  setTimeout(() => {
+        //    if(this.currentAnimal.flight == false){
+        //      e.target.classList.add('correct');
+        //      this.points = this.points + 10
+        //    }
+        //    else{
+        //      e.target.classList.add('wrong');
+        //      this.lives[this.livesLeft-1].used = true;
+        //     this.livesLeft -= 1;
             
-           }
-           if(this.livesLeft == 0){
-             setTimeout(() => {
-               this.gameOver = true;
-             }, 300);
-          }
-          else
-           this.resetGame()
-         }, 300);
+        //    }
+        //    if(this.livesLeft == 0){
+        //      setTimeout(() => {
+        //        this.gameOver = true;
+        //      }, 300);
+        //   }
+        //   else
+        //    this.resetGame()
+        //  }, 300);
         }
         else if(direction == 8){//up
-          e.target.style.transform = 'translate(0px, -200px)';
-          setTimeout(() => {
-            if(this.currentAnimal.flight == true){
-              e.target.classList.add('correct');
-              this.points  = this.points + 10;
-            }
-            else{
-              e.target.classList.add('wrong');
-              this.lives[this.livesLeft-1].used = true;
-              this.livesLeft -= 1;
-            }
-            if(this.livesLeft == 0){
-              setTimeout(() => {
-                this.gameOver = true;
-              }, 300);
-            }
-            else
-            this.resetGame()
-          }, 300);
+          this.animateSwipe('up');
+          // e.target.style.transform = 'translate(0px, -200px)';
+          // setTimeout(() => {
+          //   if(this.currentAnimal.flight == true){
+          //     e.target.classList.add('correct');
+          //     this.points  = this.points + 10;
+          //   }
+          //   else{
+          //     e.target.classList.add('wrong');
+          //     this.lives[this.livesLeft-1].used = true;
+          //     this.livesLeft -= 1;
+          //   }
+          //   if(this.livesLeft == 0){
+          //     setTimeout(() => {
+          //       this.gameOver = true;
+          //     }, 300);
+          //   }
+          //   else
+          //   this.resetGame()
+          // }, 300);
         }
     })
 
+  }
+  animateSwipe(direction){//when user swipes this funn decides its a correct swipe or wrong swipe
+    var elem = document.getElementById('animal_name');
+    if(direction == this.currentAnimal.flight){//correct swipe
+      elem.classList.add(direction);
+      setTimeout(() => {
+        this.points = this.points + 10;
+        elem.classList.add('correct')
+      }, 300);
+    }
+    else{//wrong swipe
+      // this.points = this.points - 2;
+      this.lives[this.livesLeft-1].used = true;
+      this.livesLeft -= 1;
+      elem.classList.add(direction);
+      setTimeout(() => {
+        elem.classList.add('wrong')
+        
+      }, 300);
+      
+    }
+
+    // after animation reset for next name;
+    setTimeout(() => {
+      if(this.livesLeft == 0){
+            setTimeout(() => {
+              this.gameOver = true;
+            }, 300);
+          }
+          else
+          this.resetGame()
+    }, 300);
+      
   }
   resetGame(){
     setTimeout(() => {
       this.currentAnimal = null;
       document.getElementById('animal_name').style.transform = 'translate(0px, 0px)';
-      document.getElementById('animal_name').classList.remove('correct');
-      document.getElementById('animal_name').classList.remove('wrong');
+      document.getElementById('animal_name').classList.remove('correct','wrong','up','down');
       setTimeout(() => {
         this.initGame();
       }, 300);
