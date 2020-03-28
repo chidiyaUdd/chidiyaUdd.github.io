@@ -1,0 +1,23 @@
+<div class="main_cont container">
+  <div class="row top-cont align-content-center">
+    <div class="points-cont col-4"><p class="points">Your Score: <span>{{points}}</span></p></div>
+    <div class="lives-cont offset-4 col-4">
+      <div class="lives" *ngFor="let life of lives">
+        <span  [ngStyle]="{'color':life.used == false ? 'darkgoldenrod' : '#757575'}">
+          <i class="fas fa-dove"></i>
+        </span>
+      </div>
+    </div>
+
+  </div>
+  <div class="play-cont">
+    <h2 class="animal-name" *ngIf="!gameOver && currentAnimal != null" id="animal_name">{{this.currentAnimal.name}}</h2>
+    <div class="gameOver"  *ngIf="gameOver">
+
+      <h2 class="game-over-txt" >Game Over</h2>
+      <h2 class="point">Current Score {{points}}</h2>
+    </div>
+  </div>
+
+</div>
+

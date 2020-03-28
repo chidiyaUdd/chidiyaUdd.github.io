@@ -1,0 +1,18 @@
+<div class="main-cont">
+  <h3 class="header">
+    Welcome to chidiya udd
+  </h3>
+  <div class="logo" (click)="startPlay()">
+    <span *ngIf="!showTime">
+      <i class="fas fa-dove"></i>
+    </span>
+    <span *ngIf="showTime" class="time">{{time}}</span>
+  </div>
+  <div class="rules-cont">
+    <h2 class="rules" >Follow simple rules to play</h2>
+    <h2 class="rules" >Swipe up animal to make it fly</h2>
+    <h2 class="rules" >Swipe down animal if it doesn't fly</h2>
+    <h2 class="rules" >Now Click on Chidiya <i class="fas fa-arrow-up"></i> icon to start play</h2>
+
+  </div>
+</div>

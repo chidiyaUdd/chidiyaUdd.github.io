@@ -1,0 +1,73 @@
+.main_cont{
+    background-color: #4b7e7f;
+    height:100vh;
+    background-image: url('../../assets/images/background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height:100vh ;width:100vw;
+    .top-cont{
+        background-color: aliceblue;
+        padding:10px 0px;
+    }
+    .points-cont{
+        .points{
+            font-family: 'Roboto-Cond-Bold';
+            margin:0px;
+            color:#757575;
+            font-size: 1rem;
+            @media(max-width:320px){
+                font-size: 0.8rem;
+            }
+            span{
+                color:#000000;
+            }
+        }
+    }
+    .lives-cont{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .lives{
+            margin-right: 5px;
+            font-size: 1rem;
+            @media(max-width: 320px){
+                font-size: 0.8rem;
+            }
+        }
+    }
+    .play-cont{
+        // border:1px solid red;
+        height: 90vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .animal-name{
+            font-family: 'Baloo Da 2', cursive;
+            font-weight: 800;
+            color:darkslategrey;
+            font-size: 5rem;
+            transition: transform 0.2s ease-out;
+        }
+        .correct{
+            color:#76ff03;
+        }
+        .wrong{
+            color:#e53935;
+        }
+        .gameOver{
+            .game-over-txt, .point{
+                @extend .animal-name;
+                text-align: center;
+                font-size: 3rem;
+            }
+            .point{
+                font-size: 2rem;
+                color:darkgoldenrod;
+            }
+        }
+    }
+}
