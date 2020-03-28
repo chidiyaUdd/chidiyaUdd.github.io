@@ -9,7 +9,7 @@ export class AudioService {
 
   audioList = {
     gameAudio : new Howl({
-      src:['../assets/audio/takeonme.aac'],
+      src:['../assets/audio/takeonme.mp3'],
       loop:true,
       volume:3,
       html:true
