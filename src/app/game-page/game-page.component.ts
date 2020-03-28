@@ -6,7 +6,7 @@ declare const Hammer;
   styleUrls: ['./game-page.component.scss']
 })
 export class GamePageComponent implements OnInit {
-  gameOver: boolean = true;
+  gameOver: boolean = false;
 
   constructor() { }
   animals: any[] = [{ name: 'maina', flight: 'up' },
