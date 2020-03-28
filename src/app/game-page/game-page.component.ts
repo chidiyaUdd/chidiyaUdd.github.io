@@ -6,7 +6,7 @@ declare const Hammer;
   styleUrls: ['./game-page.component.scss']
 })
 export class GamePageComponent implements OnInit {
-  gameOver: boolean = false;
+  gameOver: boolean = true;
 
   constructor() { }
   animals: any[] = [{ name: 'maina', flight: 'up' },
@@ -49,11 +49,14 @@ export class GamePageComponent implements OnInit {
   livesLeft = this.lives.length
   ngOnInit() {
     this.initLives(3);
+    if(!this.gameOver)
     this.initGame();
     
   }
   initLives(Count) {
-    
+    for(var i = 0; i < Count; i++){
+      this.lives[i].used = false;
+    }
   }
   ngAfterViewInit(){
 
@@ -132,9 +135,12 @@ export class GamePageComponent implements OnInit {
   }
   animateSwipe(direction){//when user swipes this funn decides its a correct swipe or wrong swipe
     var elem = document.getElementById('animal_name');
+    var pointsElem = document.getElementById('points');
+
     if(direction == this.currentAnimal.flight){//correct swipe
       elem.classList.add(direction);
       setTimeout(() => {
+        pointsElem.style.transform = 'scale(1.5)';
         this.points = this.points + 10;
         elem.classList.add('correct')
       }, 300);
@@ -165,13 +171,22 @@ export class GamePageComponent implements OnInit {
   }
   resetGame(){
     setTimeout(() => {
-      this.currentAnimal = null;
       document.getElementById('animal_name').style.transform = 'translate(0px, 0px)';
       document.getElementById('animal_name').classList.remove('correct','wrong','up','down');
+      this.currentAnimal = null;
       setTimeout(() => {
         this.initGame();
       }, 300);
     }, 500);
   }
-
+  playAgain(){
+    this.points = 0;
+    this.livesLeft = this.lives.length;
+    this.initLives(3);
+    setTimeout(() => {
+      this.gameOver = false;
+      // this.resetGame();
+      this.initGame()
+    }, 300);
+  }
 }

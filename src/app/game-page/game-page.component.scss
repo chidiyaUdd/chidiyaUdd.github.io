@@ -16,11 +16,21 @@
             margin:0px;
             color:#757575;
             font-size: 1rem;
+            transition: transform 1s;
             @media(max-width:320px){
                 font-size: 0.8rem;
             }
             span{
                 color:#000000;
+            }
+            .pointAddition{
+                animation: pointsZoom 1s ease-in-out;
+            }
+            @keyframes pointsZoom {
+                100%{
+                    animation-timing-function: ease-in-out;
+                    transform:scale(2);
+                }
             }
         }
     }
@@ -84,13 +94,19 @@
                 color:darkgoldenrod;
             }
         }
+        .play-again-btn{
+            font-family: 'Baloo Da 2', cursive;
+            font-size: 1.5rem;
+            color:#fff;
+            background-color: darkslategrey;
+            width: 55vw;
+            border-radius: 10px;
+            text-align: center;
+            padding:0.5rem;
+            margin-bottom: 10vh;
+        }
     }
-    @keyframes flySideAxis {
-            100%{
-                animation-timing-function: ease-in;
-                transform: translateX(50px);
-            }
-    }
+   
     @keyframes flyUpaxis {
         100%{
             animation-timing-function: ease-out;
@@ -103,4 +119,5 @@
             transform: translate(0px,200px);
         }
     }
+   
 }
