@@ -1,5 +1,5 @@
   
-FROM 392585469273.dkr.ecr.ap-south-1.amazonaws.com/chidyaudd:v1
+FROM 392585469273.dkr.ecr.ap-south-1.amazonaws.com/chidiyaudd:v1
 
 RUN apt-get install git -y
 
